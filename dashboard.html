@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+BALAJI NEXTGEN ERP DASHBOARD
+</title>
+
+<link
+rel="manifest"
+href="/manifest.json">
+
+<meta
+name="theme-color"
+content="#2563eb">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="css/global/global.css">
+
+<link
+rel="stylesheet"
+href="css/dashboard/dashboard.css">
+
+<link
+rel="stylesheet"
+href="css/responsive/mobile.css">
+
+<style>
+
+body{
+background:#f8fafc;
+overflow-x:hidden;
+}
+
+/* =====================================================
+SESSION CHECK
+===================================================== */
+
+.loading-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;
+flex-direction:column;
+}
+
+.loading-spinner{
+width:80px;
+height:80px;
+border:8px solid #e2e8f0;
+border-top:8px solid #2563eb;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin-bottom:25px;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* =====================================================
+SIDEBAR
+===================================================== */
+
+.sidebar-logo{
+padding:30px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.sidebar-logo h1{
+font-size:28px;
+font-weight:800;
+}
+
+.sidebar-logo span{
+color:#ef4444;
+}
+
+.sidebar-menu-container{
+padding:18px;
+}
+
+.erp-sidebar-menu{
+display:flex;
+align-items:center;
+gap:16px;
+padding:16px 18px;
+border-radius:18px;
+cursor:pointer;
+margin-bottom:12px;
+transition:0.3s;
+color:white;
+}
+
+.erp-sidebar-menu:hover{
+background:rgba(255,255,255,0.08);
+}
+
+.erp-sidebar-menu.active{
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#3b82f6
+);
+}
+
+.erp-sidebar-menu i{
+font-size:22px;
+}
+
+/* =====================================================
+TOPBAR
+===================================================== */
+
+.topbar-search{
+width:320px;
+padding:14px 18px;
+border-radius:16px;
+border:1px solid #e2e8f0;
+background:#f8fafc;
+outline:none;
+font-size:15px;
+}
+
+.topbar-right{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.top-icon{
+position:relative;
+cursor:pointer;
+font-size:22px;
+}
+
+.top-badge{
+position:absolute;
+top:-10px;
+right:-10px;
+background:#ef4444;
+color:white;
+width:22px;
+height:22px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:11px;
+font-weight:700;
+}
+
+/* =====================================================
+WELCOME
+===================================================== */
+
+.welcome-card{
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#1e3a8a
+);
+
+border-radius:30px;
+padding:40px;
+color:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:28px;
+overflow:hidden;
+position:relative;
+}
+
+.welcome-card h1{
+font-size:42px;
+font-weight:800;
+margin-bottom:12px;
+}
+
+.welcome-card p{
+font-size:18px;
+color:#dbeafe;
+}
+
+.live-box{
+background:rgba(255,255,255,0.08);
+padding:20px 28px;
+border-radius:22px;
+text-align:center;
+}
+
+/* =====================================================
+ANALYTICS
+===================================================== */
+
+.analytics-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+margin-bottom:28px;
+}
+
+.analytics-card{
+background:white;
+padding:28px;
+border-radius:28px;
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+transition:0.3s;
+}
+
+.analytics-card:hover{
+transform:translateY(-5px);
+}
+
+.analytics-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:22px;
+}
+
+.analytics-icon{
+width:65px;
+height:65px;
+border-radius:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#3b82f6
+);
+color:white;
+}
+
+.analytics-value{
+font-size:38px;
+font-weight:800;
+color:#0f172a;
+margin-bottom:10px;
+}
+
+.analytics-title{
+font-size:15px;
+color:#64748b;
+}
+
+.analytics-growth{
+margin-top:12px;
+font-size:14px;
+font-weight:700;
+color:#16a34a;
+}
+
+/* =====================================================
+TABLE
+===================================================== */
+
+.table-card{
+background:white;
+padding:28px;
+border-radius:28px;
+box-shadow:0 15px 40px rgba(0,0,0,0.06);
+overflow:auto;
+margin-bottom:28px;
+}
+
+.table-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:22px;
+}
+
+.erp-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.erp-table th{
+background:#2563eb;
+color:white;
+padding:16px;
+text-align:left;
+}
+
+.erp-table td{
+padding:16px;
+border-bottom:1px solid #e2e8f0;
+}
+
+/* =====================================================
+QUICK ACTIONS
+===================================================== */
+
+.quick-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:20px;
+}
+
+.quick-card{
+background:white;
+padding:24px;
+border-radius:24px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+.quick-card:hover{
+transform:translateY(-4px);
+background:#2563eb;
+color:white;
+}
+
+.quick-card .icon{
+font-size:40px;
+margin-bottom:16px;
+}
+
+/* =====================================================
+FLOAT BUTTON
+===================================================== */
+
+.float-btn{
+position:fixed;
+right:25px;
+bottom:25px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#3b82f6
+);
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:white;
+cursor:pointer;
+box-shadow:0 20px 40px rgba(37,99,235,0.35);
+z-index:999;
+}
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
+@media(max-width:1100px){
+
+.welcome-card{
+flex-direction:column;
+align-items:flex-start;
+gap:25px;
+}
+
+}
+
+@media(max-width:768px){
+
+#erpSidebar{
+left:-280px;
+}
+
+#erpSidebar.mobile-open{
+left:0;
+}
+
+#erpTopbar{
+left:0;
+padding:0 15px;
+}
+
+#erpMainContent{
+margin-left:0;
+padding:15px;
+}
+
+.topbar-search{
+width:100%;
+}
+
+.welcome-card h1{
+font-size:30px;
+}
+
+.analytics-grid{
+grid-template-columns:1fr;
+}
+
+.quick-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+SESSION CHECK
+===================================================== -->
+
+<script>
+
+if(
+
+localStorage.getItem(
+'ERP_LOGIN_STATUS'
+) !== 'ACTIVE'
+
+){
+
+window.location.href =
+'client-login.html';
+
+}
+
+</script>
+
+<!-- =====================================================
+LOADING SCREEN
+===================================================== -->
+
+<div
+class="loading-screen"
+id="loadingScreen">
+
+<div class="loading-spinner"></div>
+
+<h2>
+LOADING ERP DASHBOARD...
+</h2>
+
+</div>
+
+<!-- =====================================================
+LAYOUT
+===================================================== -->
+
+<div class="erp-layout">
+
+<!-- =====================================================
+SIDEBAR
+===================================================== -->
+
+<div id="erpSidebar">
+
+<div class="sidebar-logo">
+
+<h1>
+BALAJI <span>ERP</span>
+</h1>
+
+<p
+style="
+margin-top:10px;
+font-size:13px;
+opacity:0.8;
+">
+
+Enterprise SaaS Platform
+
+</p>
+
+</div>
+
+<div class="sidebar-menu-container">
+
+<div
+class="erp-sidebar-menu active">
+
+<i>📊</i>
+
+<span>
+Dashboard
+</span>
+
+</div>
+
+<div class="erp-sidebar-menu">
+<i>🍽</i>
+<span>Restaurant ERP</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>🛒</i>
+<span>POS Billing</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>📦</i>
+<span>Inventory</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>💰</i>
+<span>Accounts</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>🏦</i>
+<span>Banking</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>👨‍💼</i>
+<span>HR Payroll</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>📈</i>
+<span>Analytics</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>🤖</i>
+<span>AI Assistant</span>
+</div>
+
+<div class="erp-sidebar-menu">
+<i>⚙️</i>
+<span>Settings</span>
+</div>
+
+<div
+class="erp-sidebar-menu"
+onclick="logoutERP()">
+
+<i>🚪</i>
+
+<span>
+Logout
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
+<div style="width:100%;">
+
+<!-- =====================================================
+TOPBAR
+===================================================== -->
+
+<div id="erpTopbar">
+
+<div
+style="
+display:flex;
+align-items:center;
+gap:18px;
+">
+
+<button
+class="erp-btn"
+onclick="toggleSidebar()">
+
+☰
+
+</button>
+
+<input
+type="text"
+class="topbar-search"
+placeholder="Search ERP Modules...">
+
+</div>
+
+<div class="topbar-right">
+
+<div id="erpClock"></div>
+
+<div class="top-icon">
+
+🔔
+
+<div class="top-badge">
+3
+</div>
+
+</div>
+
+<div class="top-icon">
+
+📩
+
+<div class="top-badge">
+5
+</div>
+
+</div>
+
+<div
+style="
+display:flex;
+align-items:center;
+gap:14px;
+">
+
+<div class="erp-avatar">
+
+A
+
+</div>
+
+<div>
+
+<div
+id="topbarUserName"
+style="
+font-weight:700;
+">
+
+ERP USER
+
+</div>
+
+<div
+style="
+font-size:13px;
+color:#64748b;
+">
+
+Administrator
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+CONTENT
+===================================================== -->
+
+<div id="erpMainContent">
+
+<!-- =====================================================
+WELCOME
+===================================================== -->
+
+<div class="welcome-card">
+
+<div>
+
+<h1>
+Welcome Back 👋
+</h1>
+
+<p>
+BALAJI NEXTGEN ERP Enterprise Dashboard
+</p>
+
+</div>
+
+<div class="live-box">
+
+<div
+style="
+font-size:32px;
+font-weight:800;
+margin-bottom:8px;
+">
+
+42
+
+</div>
+
+<div>
+Realtime Active Users
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+ANALYTICS
+===================================================== -->
+
+<div class="analytics-grid">
+
+<div class="analytics-card">
+
+<div class="analytics-top">
+
+<div class="analytics-icon">
+💰
+</div>
+
+</div>
+
+<div class="analytics-value">
+₹2.8L
+</div>
+
+<div class="analytics-title">
+Today's Sales
+</div>
+
+<div class="analytics-growth">
++18% Growth
+</div>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="analytics-top">
+
+<div class="analytics-icon">
+📦
+</div>
+
+</div>
+
+<div class="analytics-value">
+5,240
+</div>
+
+<div class="analytics-title">
+Inventory Items
+</div>
+
+<div class="analytics-growth">
+Realtime Updated
+</div>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="analytics-top">
+
+<div class="analytics-icon">
+🧾
+</div>
+
+</div>
+
+<div class="analytics-value">
+184
+</div>
+
+<div class="analytics-title">
+Orders Today
+</div>
+
+<div class="analytics-growth">
++9% Growth
+</div>
+
+</div>
+
+<div class="analytics-card">
+
+<div class="analytics-top">
+
+<div class="analytics-icon">
+👥
+</div>
+
+</div>
+
+<div class="analytics-value">
+42
+</div>
+
+<div class="analytics-title">
+Live Users
+</div>
+
+<div class="analytics-growth">
+Online Monitoring
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+TABLE
+===================================================== -->
+
+<div class="table-card">
+
+<div class="table-header">
+
+<h2>
+Recent Transactions
+</h2>
+
+<button class="erp-btn">
+
+Export Report
+
+</button>
+
+</div>
+
+<table class="erp-table">
+
+<thead>
+
+<tr>
+
+<th>
+Invoice
+</th>
+
+<th>
+Customer
+</th>
+
+<th>
+Amount
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>INV-1001</td>
+<td>Balaji Restaurant</td>
+<td>₹12,500</td>
+<td>
+<span class="erp-badge erp-success">
+Paid
+</span>
+</td>
+</tr>
+
+<tr>
+<td>INV-1002</td>
+<td>Tea Factory</td>
+<td>₹22,000</td>
+<td>
+<span class="erp-badge erp-warning">
+Pending
+</span>
+</td>
+</tr>
+
+<tr>
+<td>INV-1003</td>
+<td>Retail Shop</td>
+<td>₹8,400</td>
+<td>
+<span class="erp-badge erp-success">
+Paid
+</span>
+</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- =====================================================
+QUICK ACTIONS
+===================================================== -->
+
+<div class="quick-grid">
+
+<div class="quick-card">
+<div class="icon">🛒</div>
+<div>POS Billing</div>
+</div>
+
+<div class="quick-card">
+<div class="icon">📦</div>
+<div>Inventory</div>
+</div>
+
+<div class="quick-card">
+<div class="icon">💰</div>
+<div>Accounts</div>
+</div>
+
+<div class="quick-card">
+<div class="icon">📈</div>
+<div>Analytics</div>
+</div>
+
+<div class="quick-card">
+<div class="icon">🤖</div>
+<div>AI Assistant</div>
+</div>
+
+<div class="quick-card">
+<div class="icon">⚙️</div>
+<div>Settings</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+FLOAT AI BUTTON
+===================================================== -->
+
+<div class="float-btn">
+
+🤖
+
+</div>
+
+<!-- =====================================================
+SCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+LOADING
+===================================================== */
+
+window.addEventListener(
+
+'load',
+
+function(){
+
+setTimeout(function(){
+
+document
+.getElementById(
+'loadingScreen'
+)
+.style.display='none';
+
+},1200);
+
+}
+
+/* =====================================================
+CLOCK
+===================================================== */
+
+);
+
+function updateClock(){
+
+document
+.getElementById(
+'erpClock'
+)
+.innerHTML =
+
+new Date()
+.toLocaleString();
+
+}
+
+setInterval(
+updateClock,
+1000
+);
+
+updateClock();
+
+/* =====================================================
+USER
+===================================================== */
+
+const user =
+JSON.parse(
+
+localStorage.getItem(
+'ERP_USER'
+)
+
+|| '{}'
+
+);
+
+if(user.name){
+
+document
+.getElementById(
+'topbarUserName'
+)
+.innerHTML =
+user.name;
+
+}
+
+/* =====================================================
+SIDEBAR
+===================================================== */
+
+function toggleSidebar(){
+
+const sidebar =
+document.getElementById(
+'erpSidebar'
+);
+
+sidebar.classList.toggle(
+'mobile-open'
+);
+
+}
+
+/* =====================================================
+LOGOUT
+===================================================== */
+
+function logoutERP(){
+
+localStorage.clear();
+
+window.location.href =
+'client-login.html';
+
+}
+
+/* =====================================================
+SERVICE WORKER
+===================================================== */
+
+if('serviceWorker' in navigator){
+
+navigator.serviceWorker.register(
+'/service-worker.js'
+);
+
+}
+
+</script>
+
+</body>
+
+</html>
