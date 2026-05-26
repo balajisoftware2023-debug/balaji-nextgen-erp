@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+BALAJI NEXTGEN ERP - PROFESSIONAL REGISTER
+
+</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#eff6ff,
+#ffffff,
+#f8fbff
+);
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+padding:22px;
+
+}
+
+/* =========================================
+MAIN WRAPPER
+========================================= */
+
+.main-wrapper{
+
+max-width:1650px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:1.1fr 0.9fr;
+
+background:white;
+
+border-radius:36px;
+
+overflow:hidden;
+
+box-shadow:
+0 30px 90px rgba(37,99,235,0.15);
+
+border:
+1px solid #dbeafe;
+
+}
+
+/* =========================================
+LEFT PANEL
+========================================= */
+
+.left-panel{
+
+position:relative;
+
+padding:70px 60px;
+
+background:
+linear-gradient(
+135deg,
+rgba(37,99,235,0.95),
+rgba(15,23,42,0.96)
+);
+
+color:white;
+
+overflow:hidden;
+
+}
+
+.left-panel::before{
+
+content:"";
+
+position:absolute;
+
+width:650px;
+height:650px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,0.06);
+
+top:-260px;
+right:-180px;
+
+}
+
+.left-panel::after{
+
+content:"";
+
+position:absolute;
+
+width:420px;
+height:420px;
+
+border-radius:50%;
+
+background:
+rgba(255,255,255,0.04);
+
+bottom:-180px;
+left:-120px;
+
+}
+
+/* =========================================
+LOGO
+========================================= */
+
+.logo-area{
+
+display:flex;
+
+align-items:center;
+
+gap:18px;
+
+margin-bottom:50px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.logo{
+
+width:100px;
+height:100px;
+
+border-radius:24px;
+
+background:white;
+
+padding:8px;
+
+object-fit:contain;
+
+}
+
+.logo-content h1{
+
+font-size:48px;
+
+font-weight:800;
+
+line-height:1.05;
+
+}
+
+.logo-content h1 span{
+
+color:#93c5fd;
+
+}
+
+.logo-content p{
+
+margin-top:12px;
+
+font-size:13px;
+
+letter-spacing:5px;
+
+color:#dbeafe;
+
+}
+
+/* =========================================
+HERO
+========================================= */
+
+.hero-title{
+
+font-size:62px;
+
+font-weight:800;
+
+line-height:1.15;
+
+margin-bottom:24px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.hero-title span{
+
+color:#93c5fd;
+
+}
+
+.hero-description{
+
+font-size:17px;
+
+line-height:2.1;
+
+color:#dbeafe;
+
+margin-bottom:40px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/* =========================================
+FEATURES
+========================================= */
+
+.features-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:20px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.feature-card{
+
+padding:26px;
+
+border-radius:24px;
+
+background:
+rgba(255,255,255,0.08);
+
+border:
+1px solid rgba(255,255,255,0.10);
+
+backdrop-filter:blur(10px);
+
+}
+
+.feature-icon{
+
+width:62px;
+height:62px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,0.12);
+
+font-size:24px;
+
+margin-bottom:16px;
+
+}
+
+.feature-card h3{
+
+font-size:20px;
+
+margin-bottom:12px;
+
+}
+
+.feature-card p{
+
+font-size:14px;
+
+line-height:1.9;
+
+color:#dbeafe;
+
+}
+
+/* =========================================
+RIGHT PANEL
+========================================= */
+
+.right-panel{
+
+padding:45px 40px;
+
+overflow-y:auto;
+
+max-height:100vh;
+
+background:white;
+
+}
+
+/* =========================================
+TOP NAV
+========================================= */
+
+.top-nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:30px;
+
+}
+
+.nav-btn{
+
+height:50px;
+
+padding:0 24px;
+
+border:none;
+
+border-radius:15px;
+
+font-size:14px;
+
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.back-btn{
+
+background:#f1f5f9;
+
+color:#0f172a;
+
+}
+
+.login-btn{
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:white;
+
+}
+
+.nav-btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* =========================================
+BADGE
+========================================= */
+
+.register-badge{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:12px 18px;
+
+border-radius:40px;
+
+background:#dbeafe;
+
+color:#1d4ed8;
+
+font-size:13px;
+
+font-weight:700;
+
+margin-bottom:20px;
+
+}
+
+/* =========================================
+TITLE
+========================================= */
+
+.form-title{
+
+font-size:48px;
+
+font-weight:800;
+
+line-height:1.15;
+
+color:#081224;
+
+margin-bottom:15px;
+
+}
+
+.form-title span{
+
+color:#2563eb;
+
+}
+
+.form-description{
+
+font-size:15px;
+
+line-height:2;
+
+color:#64748b;
+
+margin-bottom:32px;
+
+}
+
+/* =========================================
+TRIAL BOX
+========================================= */
+
+.trial-box{
+
+padding:28px;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:white;
+
+margin-bottom:32px;
+
+}
+
+.trial-box h2{
+
+font-size:30px;
+
+margin-bottom:16px;
+
+font-weight:800;
+
+}
+
+.trial-box ul{
+
+padding-left:18px;
+
+}
+
+.trial-box li{
+
+margin-bottom:12px;
+
+font-size:15px;
+
+line-height:1.9;
+
+color:#dbeafe;
+
+}
+
+/* =========================================
+BENEFITS
+========================================= */
+
+.benefits-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:18px;
+
+margin-bottom:35px;
+
+}
+
+.benefit-card{
+
+padding:18px;
+
+border-radius:18px;
+
+background:#f8fbff;
+
+border:
+1px solid #dbeafe;
+
+font-size:14px;
+
+font-weight:600;
+
+color:#0f172a;
+
+}
+
+/* =========================================
+OFFER BOX
+========================================= */
+
+.offer-box{
+
+padding:28px;
+
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+#fff7ed,
+#ffffff
+);
+
+border:
+1px solid #fdba74;
+
+margin-bottom:35px;
+
+}
+
+.offer-box h2{
+
+font-size:32px;
+
+font-weight:800;
+
+margin-bottom:14px;
+
+color:#ea580c;
+
+}
+
+.offer-box p{
+
+font-size:15px;
+
+line-height:2;
+
+color:#475569;
+
+margin-bottom:24px;
+
+}
+
+.offer-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:18px;
+
+}
+
+.offer-card{
+
+padding:22px;
+
+border-radius:22px;
+
+background:white;
+
+border:
+1px solid #fde68a;
+
+}
+
+.offer-card h3{
+
+font-size:20px;
+
+margin-bottom:16px;
+
+}
+
+.offer-card ul{
+
+padding-left:18px;
+
+}
+
+.offer-card li{
+
+margin-bottom:12px;
+
+font-size:14px;
+
+line-height:1.8;
+
+color:#334155;
+
+}
+
+.offer-highlight{
+
+margin-top:22px;
+
+padding:18px;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#f97316,
+#ea580c
+);
+
+color:white;
+
+text-align:center;
+
+font-size:15px;
+
+font-weight:700;
+
+}
+
+/* =========================================
+FORM
+========================================= */
+
+.form-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:18px;
+
+}
+
+.full-width{
+
+grid-column:1 / -1;
+
+}
+
+.input-group{
+
+margin-bottom:18px;
+
+}
+
+.input-group label{
+
+display:block;
+
+margin-bottom:10px;
+
+font-size:14px;
+
+font-weight:700;
+
+color:#0f172a;
+
+}
+
+.input-box{
+
+position:relative;
+
+}
+
+.input-box i{
+
+position:absolute;
+
+left:18px;
+top:18px;
+
+font-size:16px;
+
+color:#64748b;
+
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+
+padding:16px 18px 16px 50px;
+
+border-radius:16px;
+
+border:
+1px solid #dbe4ef;
+
+background:#f8fbff;
+
+font-size:14px;
+
+outline:none;
+
+transition:0.3s;
+
+}
+
+textarea{
+
+height:120px;
+
+resize:none;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+border-color:#2563eb;
+
+background:white;
+
+box-shadow:
+0 0 0 4px rgba(37,99,235,0.08);
+
+}
+
+/* =========================================
+BUTTON
+========================================= */
+
+.submit-btn{
+
+width:100%;
+
+height:60px;
+
+border:none;
+
+border-radius:18px;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+
+color:white;
+
+font-size:17px;
+
+font-weight:700;
+
+cursor:pointer;
+
+margin-top:10px;
+
+transition:0.3s;
+
+}
+
+.submit-btn:hover{
+
+transform:translateY(-4px);
+
+box-shadow:
+0 20px 40px rgba(37,99,235,0.18);
+
+}
+
+/* =========================================
+FOOTER
+========================================= */
+
+.footer{
+
+margin-top:30px;
+
+text-align:center;
+
+font-size:12px;
+
+line-height:2;
+
+color:#64748b;
+
+}
+
+/* =========================================
+MOBILE
+========================================= */
+
+@media(max-width:1200px){
+
+.main-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.features-grid,
+.benefits-grid,
+.offer-grid,
+.form-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.full-width{
+
+grid-column:auto;
+
+}
+
+.hero-title{
+
+font-size:42px;
+
+}
+
+.form-title{
+
+font-size:36px;
+
+}
+
+.top-nav{
+
+flex-direction:column;
+
+gap:14px;
+
+}
+
+.nav-btn{
+
+width:100%;
+
+}
+
+.left-panel,
+.right-panel{
+
+padding:35px 25px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main-wrapper">
+
+<!-- =========================================
+LEFT PANEL
+========================================= -->
+
+<div class="left-panel">
+
+<div class="logo-area">
+
+<img
+src="https://lh3.googleusercontent.com/d/1aqcY-aiq4n1g09OQNBN-Ove9n_lxiZPC"
+class="logo">
+
+<div class="logo-content">
+
+<h1>
+
+BALAJI
+<span>NEXTGEN</span>
+
+</h1>
+
+<p>
+
+SMART ERP AUTOMATION
+
+</p>
+
+</div>
+
+</div>
+
+<h2 class="hero-title">
+
+START YOUR
+<span>DIGITAL ERP</span>
+JOURNEY
+
+</h2>
+
+<p class="hero-description">
+
+Professional business automation platform with
+Cloud ERP,
+Restaurant ERP,
+Retail ERP,
+Inventory,
+GST Billing,
+Manufacturing,
+Payroll,
+CRM,
+Analytics,
+Mobile Apps &
+Multi Branch Operations.
+
+</p>
+
+<div class="features-grid">
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🍽
+</div>
+
+<h3>
+
+Restaurant ERP
+
+</h3>
+
+<p>
+
+POS Billing,
+Kitchen Display,
+KOT,
+Table Management &
+Restaurant Analytics.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🏬
+</div>
+
+<h3>
+
+Retail ERP
+
+</h3>
+
+<p>
+
+Barcode Billing,
+GST Billing,
+Sales Reports &
+Inventory Management.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+🏭
+</div>
+
+<h3>
+
+Manufacturing ERP
+
+</h3>
+
+<p>
+
+Production Planning,
+Factory Operations,
+BOM &
+Inventory Control.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<div class="feature-icon">
+☁
+</div>
+
+<h3>
+
+Cloud ERP
+
+</h3>
+
+<p>
+
+Secure Online ERP with
+Remote Access &
+Mobile Connectivity.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================================
+RIGHT PANEL
+========================================= -->
+
+<div class="right-panel">
+
+<div class="top-nav">
+
+<button
+class="nav-btn back-btn"
+onclick="window.history.back()">
+
+⬅ BACK
+
+</button>
+
+<button
+class="nav-btn login-btn"
+<a href="../client-login.html" class="btn btn-outline">
+
+🔐 LOGIN
+
+</button>
+
+</div>
+
+<div class="register-badge">
+
+🚀 ENTERPRISE ERP FREE TRIAL
+
+</div>
+
+<h2 class="form-title">
+
+START YOUR
+<span>LIVE ERP TRIAL</span>
+
+</h2>
+
+<p class="form-description">
+
+Create your FREE ERP Demo Account and instantly access professional ERP dashboard.
+
+</p>
+
+<!-- =========================================
+TRIAL BOX
+========================================= -->
+
+<div class="trial-box">
+
+<h2>
+
+🎯 90 DAYS FREE LIVE ERP ACCESS
+
+</h2>
+
+<ul>
+
+<li>
+✔ All ERP Modules
+</li>
+
+<li>
+✔ Dashboard + Analytics
+</li>
+
+<li>
+✔ GST Billing + Reports
+</li>
+
+<li>
+✔ Multi Branch ERP
+</li>
+
+<li>
+✔ Mobile ERP Access
+</li>
+
+</ul>
+
+</div>
+
+<!-- =========================================
+BENEFITS
+========================================= -->
+
+<div class="benefits-grid">
+
+<div class="benefit-card">
+✅ Restaurant ERP
+</div>
+
+<div class="benefit-card">
+✅ Retail ERP
+</div>
+
+<div class="benefit-card">
+✅ Manufacturing ERP
+</div>
+
+<div class="benefit-card">
+✅ Inventory ERP
+</div>
+
+<div class="benefit-card">
+✅ GST Billing ERP
+</div>
+
+<div class="benefit-card">
+✅ Dashboard Analytics
+</div>
+
+</div>
+
+<!-- =========================================
+EARLY OFFER
+========================================= -->
+
+<div class="offer-box">
+
+<h2>
+
+🎉 EARLY SUBSCRIPTION OFFER
+
+</h2>
+
+<p>
+
+Register within
+<b>30 days after trial</b>
+and unlock special ERP pricing.
+
+</p>
+
+<div class="offer-grid">
+
+<div class="offer-card">
+
+<h3>
+
+⚡ EARLY OFFER
+
+</h3>
+
+<ul>
+
+<li>
+✅ Up To 40% Discount
+</li>
+
+<li>
+✅ Free Setup
+</li>
+
+<li>
+✅ Free Migration
+</li>
+
+<li>
+✅ Priority Support
+</li>
+
+</ul>
+
+</div>
+
+<div class="offer-card">
+
+<h3>
+
+⏳ AFTER 30 DAYS
+
+</h3>
+
+<ul>
+
+<li>
+❌ Standard Pricing
+</li>
+
+<li>
+❌ Paid Setup
+</li>
+
+<li>
+❌ Normal Support
+</li>
+
+<li>
+❌ No Discount
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="offer-highlight">
+
+🔥 LIMITED OFFER FOR NEW CLIENTS ONLY
+
+</div>
+
+</div>
+
+<!-- =========================================
+FORM
+========================================= -->
+
+<div class="form-grid">
+
+<div class="input-group full-width">
+
+<label>
+
+🏢 COMPANY NAME
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-building"></i>
+
+<input
+type="text"
+placeholder="Enter Company Name">
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+👤 OWNER NAME
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-user"></i>
+
+<input
+type="text"
+placeholder="Enter Owner Name">
+
+</div>
+
+</div>
+
+<div class="input-group">
+
+<label>
+
+📱 MOBILE NUMBER
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+<input
+type="text"
+placeholder="Enter Mobile Number">
+
+</div>
+
+</div>
+
+<div class="input-group full-width">
+
+<label>
+
+📧 EMAIL ADDRESS
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-envelope"></i>
+
+<input
+type="email"
+placeholder="Enter Email Address">
+
+</div>
+
+</div>
+
+<div class="input-group full-width">
+
+<label>
+
+🏭 BUSINESS SECTOR
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-industry"></i>
+
+<select
+id="sector"
+onchange="loadIndustries()">
+
+<option value="">
+SELECT BUSINESS SECTOR
+</option>
+
+<option value="food">
+FOOD & RESTAURANT
+</option>
+
+<option value="retail">
+RETAIL & SUPERMARKET
+</option>
+
+<option value="cloth">
+CLOTH & GARMENT
+</option>
+
+<option value="distribution">
+DISTRIBUTION & WHOLESALE
+</option>
+
+<option value="manufacturing">
+MANUFACTURING & FACTORY
+</option>
+
+<option value="medical">
+MEDICAL & HEALTHCARE
+</option>
+
+<option value="education">
+EDUCATION & TRAINING
+</option>
+
+<option value="services">
+SERVICES & CONSULTANCY
+</option>
+
+<option value="transport">
+TRANSPORT & LOGISTICS
+</option>
+
+<option value="construction">
+CONSTRUCTION & REAL ESTATE
+</option>
+
+<option value="agriculture">
+AGRICULTURE & FARMING
+</option>
+
+<option value="electronics">
+ELECTRONICS & MOBILE SHOP
+</option>
+
+<option value="hardware">
+HARDWARE & ELECTRICAL
+</option>
+
+<option value="beauty">
+SALON & BEAUTY
+</option>
+
+<option value="jewellery">
+JEWELLERY BUSINESS
+</option>
+
+<option value="finance">
+FINANCE & ACCOUNTING
+</option>
+
+<option value="software">
+SOFTWARE & IT COMPANY
+</option>
+
+<option value="automobile">
+AUTOMOBILE & GARAGE
+</option>
+
+<option value="tourism">
+TRAVEL & TOURISM
+</option>
+
+<option value="media">
+MEDIA & ENTERTAINMENT
+</option>
+
+<option value="printing">
+PRINTING & PRESS
+</option>
+
+<option value="furniture">
+FURNITURE & INTERIOR
+</option>
+
+<option value="pharma">
+PHARMA & CHEMICAL
+</option>
+
+<option value="msme">
+MSME & SMALL BUSINESS
+</option>
+
+<option value="freelancer">
+FREELANCER & DIGITAL
+</option>
+
+<option value="ngo">
+NGO & TRUST
+</option>
+
+<option value="government">
+GOVERNMENT & PROJECT
+</option>
+
+<option value="other">
+OTHER BUSINESS
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="input-group full-width">
+
+<label>
+
+🏢 INDUSTRY
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-layer-group"></i>
+
+<select id="industry">
+
+<option value="">
+SELECT INDUSTRY
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+<div class="input-group full-width">
+
+<label>
+
+📝 BUSINESS REQUIREMENT
+
+</label>
+
+<div class="input-box">
+
+<i class="fa-solid fa-file-lines"></i>
+
+<textarea
+placeholder="Tell us your ERP requirement..."></textarea>
+
+</div>
+
+</div>
+
+</div>
+
+<button class="submit-btn">
+
+🚀 START FREE LIVE ERP TRIAL
+
+</button>
+
+<div class="footer">
+
+© 2026 BALAJI NEXTGEN ERP
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function loadIndustries(){
+
+let sector =
+document.getElementById(
+"sector"
+).value;
+
+let industry =
+document.getElementById(
+"industry"
+);
+
+industry.innerHTML =
+'<option value="">SELECT INDUSTRY</option>';
+
+const data = {
+
+food : [
+"Restaurant ERP",
+"Hotel ERP",
+"Cafe ERP",
+"Bakery ERP",
+"Sweet Shop ERP",
+"Cloud Kitchen ERP",
+"Bar ERP"
+],
+
+retail : [
+"Retail ERP",
+"Supermarket ERP",
+"Department Store ERP",
+"Wholesale ERP",
+"Shopping Mall ERP"
+],
+
+cloth : [
+"Garment ERP",
+"Cloth Store ERP",
+"Boutique ERP",
+"Fashion ERP",
+"Textile ERP"
+],
+
+distribution : [
+"Distributor ERP",
+"Warehouse ERP",
+"Supply Chain ERP",
+"Wholesale ERP",
+"Dealer ERP"
+],
+
+manufacturing : [
+"Factory ERP",
+"Production ERP",
+"Tea Industry ERP",
+"Industrial ERP",
+"Manufacturing ERP"
+],
+
+medical : [
+"Hospital ERP",
+"Clinic ERP",
+"Medical Store ERP",
+"Diagnostic ERP",
+"Healthcare ERP"
+],
+
+education : [
+"School ERP",
+"College ERP",
+"Coaching ERP",
+"Training Institute ERP",
+"Education ERP"
+],
+
+services : [
+"Consultancy ERP",
+"CA Office ERP",
+"Tax Consultant ERP",
+"Professional Services ERP"
+],
+
+transport : [
+"Transport ERP",
+"Truck ERP",
+"Fleet ERP",
+"Courier ERP",
+"Logistics ERP"
+],
+
+construction : [
+"Construction ERP",
+"Builder ERP",
+"Contractor ERP",
+"Real Estate ERP"
+],
+
+agriculture : [
+"Agriculture ERP",
+"Farm ERP",
+"Dairy ERP",
+"Poultry ERP",
+"Fishery ERP"
+],
+
+electronics : [
+"Electronics ERP",
+"Mobile Shop ERP",
+"Computer ERP",
+"Appliance ERP"
+],
+
+hardware : [
+"Electrical ERP",
+"Hardware ERP",
+"Paint ERP",
+"Sanitary ERP"
+],
+
+beauty : [
+"Salon ERP",
+"Spa ERP",
+"Beauty Parlour ERP"
+],
+
+jewellery : [
+"Jewellery ERP",
+"Gold ERP",
+"Diamond ERP"
+],
+
+finance : [
+"Accounting ERP",
+"Finance ERP",
+"Microfinance ERP",
+"Banking ERP"
+],
+
+software : [
+"Software Company ERP",
+"IT Company ERP",
+"Startup ERP",
+"Digital Agency ERP"
+],
+
+automobile : [
+"Garage ERP",
+"Automobile ERP",
+"Car Showroom ERP",
+"Bike Showroom ERP"
+],
+
+tourism : [
+"Travel Agency ERP",
+"Tour Operator ERP",
+"Tourism ERP"
+],
+
+media : [
+"Media ERP",
+"Advertising ERP",
+"Entertainment ERP"
+],
+
+printing : [
+"Printing ERP",
+"Press ERP",
+"Publishing ERP"
+],
+
+furniture : [
+"Furniture ERP",
+"Interior Design ERP",
+"Home Decor ERP"
+],
+
+pharma : [
+"Pharma ERP",
+"Chemical ERP",
+"Laboratory ERP"
+],
+
+msme : [
+"MSME ERP",
+"Small Business ERP",
+"Trading ERP"
+],
+
+freelancer : [
+"Freelancer ERP",
+"Marketing ERP",
+"Creative Studio ERP"
+],
+
+ngo : [
+"NGO ERP",
+"Trust ERP",
+"Society ERP"
+],
+
+government : [
+"Government ERP",
+"Project ERP",
+"Municipality ERP"
+],
+
+other : [
+"General Business ERP",
+"Custom ERP",
+"Multi Business ERP"
+]
+
+};
+
+if(data[sector]){
+
+data[sector].forEach(item=>{
+
+industry.innerHTML +=
+`<option>${item}</option>`;
+
+});
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
