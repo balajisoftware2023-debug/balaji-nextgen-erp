@@ -200,8 +200,8 @@ color:white;
 background:
 linear-gradient(
 135deg,
-#ef4444,
-#dc2626
+#2563eb,
+#1d4ed8
 );
 color:white;
 }
@@ -490,9 +490,9 @@ onclick="goWebsite()">
 
 <button
 class="demo-btn"
-onclick="goDemo()">
+onclick="showMessage('PLEASE LOGIN WITH VALID USER','error')">
 
-🚀 START DEMO
+🔒 SECURE LOGIN
 
 </button>
 
@@ -565,6 +565,18 @@ id="loginBtn"
 onclick="loginERP()">
 
 🔐 LOGIN TO ERP
+
+</button>
+
+<button
+class="login-btn"
+style="
+margin-top:12px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8)
+"
+onclick="openOTPLogin()">
+
+📲 LOGIN WITH OTP
 
 </button>
 
@@ -655,7 +667,7 @@ pass.type === 'password'
 }
 
 /* =====================================================
-LOGIN
+SECURE LOGIN
 ===================================================== */
 
 async function loginERP(){
@@ -721,6 +733,8 @@ password:password
 const result =
 await response.json();
 
+console.log(result);
+
 hideLoader();
 
 loginBtn.disabled = false;
@@ -728,13 +742,17 @@ loginBtn.disabled = false;
 loginBtn.innerHTML =
 '🔐 LOGIN TO ERP';
 
+/* =====================================================
+VALID LOGIN ONLY
+===================================================== */
+
 if(
 
-result.success === true ||
+result.success === true
 
-result.status === 'success' ||
+&&
 
-result.data?.status === 'success'
+result.status === 'success'
 
 ){
 
@@ -745,9 +763,17 @@ localStorage.setItem(
 
 localStorage.setItem(
 'ERP_USER',
-JSON.stringify(
-result.user || result.data?.user || {}
-)
+JSON.stringify(result.user)
+);
+
+localStorage.setItem(
+'ERP_SESSION',
+result.sessionToken
+);
+
+localStorage.setItem(
+'ERP_ROLE',
+result.user.role
 );
 
 showMessage(
@@ -763,10 +789,30 @@ window.location.href =
 
 }
 
+/* =====================================================
+INVALID LOGIN
+===================================================== */
+
 else{
 
+localStorage.removeItem(
+'ERP_LOGIN_STATUS'
+);
+
+localStorage.removeItem(
+'ERP_USER'
+);
+
+localStorage.removeItem(
+'ERP_SESSION'
+);
+
+localStorage.removeItem(
+'ERP_ROLE'
+);
+
 showMessage(
-'INVALID LOGIN',
+result.message || 'INVALID LOGIN',
 'error'
 );
 
@@ -795,6 +841,97 @@ showMessage(
 }
 
 /* =====================================================
+OTP LOGIN
+===================================================== */
+
+function openOTPLogin(){
+
+const mobile = prompt(
+"ENTER REGISTERED MOBILE NUMBER"
+);
+
+if(!mobile){
+
+showMessage(
+"MOBILE NUMBER REQUIRED",
+"error"
+);
+
+return;
+
+}
+
+showLoader();
+
+setTimeout(function(){
+
+hideLoader();
+
+showMessage(
+"OTP SENT TO " + mobile
+);
+
+verifyOTPLogin(mobile);
+
+},1500);
+
+}
+
+/* =====================================================
+VERIFY OTP
+===================================================== */
+
+function verifyOTPLogin(mobile){
+
+const otp = prompt(
+"ENTER OTP : 123456"
+);
+
+if(otp === "123456"){
+
+localStorage.setItem(
+'ERP_LOGIN_STATUS',
+'ACTIVE'
+);
+
+localStorage.setItem(
+'ERP_USER',
+JSON.stringify({
+
+name:'OTP USER',
+role:'USER',
+mobile:mobile,
+branch:'HEAD OFFICE'
+
+})
+
+);
+
+showMessage(
+'OTP LOGIN SUCCESS'
+);
+
+setTimeout(function(){
+
+window.location.href =
+'dashboard.html';
+
+},1000);
+
+}
+
+else{
+
+showMessage(
+'INVALID OTP',
+'error'
+);
+
+}
+
+}
+
+/* =====================================================
 FORGOT PASSWORD
 ===================================================== */
 
@@ -815,16 +952,6 @@ return;
 
 }
 
-sendForgotOTP(mobile);
-
-}
-
-/* =====================================================
-SEND OTP
-===================================================== */
-
-function sendForgotOTP(mobile){
-
 showLoader();
 
 setTimeout(function(){
@@ -835,36 +962,23 @@ showMessage(
 "OTP SENT TO " + mobile
 );
 
-openOTPVerification();
-
-},1500);
-
-}
-
-/* =====================================================
-OTP VERIFY
-===================================================== */
-
-function openOTPVerification(){
-
 const otp = prompt(
-"Enter OTP (Demo OTP: 123456)"
+"ENTER OTP : 123456"
 );
-
-if(!otp){
-
-showMessage(
-"OTP REQUIRED",
-"error"
-);
-
-return;
-
-}
 
 if(otp === "123456"){
 
-openResetPassword();
+const newPassword = prompt(
+"ENTER NEW PASSWORD"
+);
+
+if(newPassword){
+
+showMessage(
+"PASSWORD RESET SUCCESS"
+);
+
+}
 
 }else{
 
@@ -874,39 +988,6 @@ showMessage(
 );
 
 }
-
-}
-
-/* =====================================================
-RESET PASSWORD
-===================================================== */
-
-function openResetPassword(){
-
-const newPassword = prompt(
-"Enter New Password"
-);
-
-if(!newPassword){
-
-showMessage(
-"ENTER NEW PASSWORD",
-"error"
-);
-
-return;
-
-}
-
-showLoader();
-
-setTimeout(function(){
-
-hideLoader();
-
-showMessage(
-"PASSWORD RESET SUCCESS"
-);
 
 },1500);
 
@@ -922,18 +1003,6 @@ window.open(
 'https://balajierpnextgen.netlify.app',
 '_blank'
 );
-
-}
-
-function goDemo(){
-
-localStorage.setItem(
-'ERP_LOGIN_STATUS',
-'ACTIVE'
-);
-
-window.location.href =
-'dashboard.html';
 
 }
 
