@@ -1,544 +1,265 @@
-/********************************************************
+/*******************************************************
  BALAJI NEXTGEN ERP
- SERVICE WORKER
- FILE:
- WEBSIDE/service-worker.js
+ FILE : service-worker.js
+ PURPOSE : OFFLINE CACHE + PWA SUPPORT
 ********************************************************/
 
-/* =====================================================
-CACHE NAME
-===================================================== */
-
-const ERP_CACHE_NAME =
-'balaji-nextgen-erp-v2';
 
 /* =====================================================
-CACHE FILES
+   CACHE NAME
 ===================================================== */
 
-const ERP_CACHE_FILES = [
+const CACHE_NAME =
+  "BALAJI_NEXTGEN_CACHE_V3";
 
-'/',
-'/index.html',
-'/client-login.html',
-'/dashboard.html',
-'/offline.html',
-'/manifest.json',
+
 
 /* =====================================================
-CSS
+   FILES TO CACHE
 ===================================================== */
 
-'/css/global/global.css',
-'/css/dashboard/dashboard.css',
-'/css/responsive/mobile.css',
+const urlsToCache = [
 
-/* =====================================================
-JS CORE
-===================================================== */
+  "/",
+  "/index.html",
+  "/client-login.html",
+  "/dashboard.html",
 
-'/js/core/app-engine.js',
-'/js/core/boot-engine.js',
-'/js/core/master-init-engine.js',
-'/js/core/layout-engine.js',
-'/js/core/router-engine.js',
-'/js/core/realtime-engine.js',
-'/js/core/security-engine.js',
-'/js/core/pwa-engine.js',
+  "/logo.png",
 
-/* =====================================================
-API
-===================================================== */
+  "/manifest.json",
 
-'/js/api/api-engine.js',
+  "/css/style.css",
+  "/css/dashboard.css",
 
-/* =====================================================
-AUTH
-===================================================== */
-
-'/js/auth/auth-engine.js',
-'/js/auth/session/session-engine.js',
-
-/* =====================================================
-DASHBOARD
-===================================================== */
-
-'/js/dashboard/dashboard-engine.js',
-'/js/dashboard/sidebar-engine.js',
-'/js/dashboard/topbar-engine.js',
-
-/* =====================================================
-MODULES
-===================================================== */
-
-'/js/modules/module-engine.js',
-
-/* =====================================================
-UTILITIES
-===================================================== */
-
-'/js/utilities/storage-engine.js',
-'/js/utilities/theme-engine.js',
-'/js/utilities/loader-engine.js',
-'/js/utilities/error-engine.js',
-'/js/utilities/notification-engine.js',
-
-/* =====================================================
-AI
-===================================================== */
-
-'/js/ai/monitoring-engine.js',
-
-/* =====================================================
-ASSETS
-===================================================== */
-
-'/assets/logo.png',
-
-'/assets/icons/icon-72.png',
-'/assets/icons/icon-96.png',
-'/assets/icons/icon-128.png',
-'/assets/icons/icon-144.png',
-'/assets/icons/icon-152.png',
-'/assets/icons/icon-192.png',
-'/assets/icons/icon-384.png',
-'/assets/icons/icon-512.png'
+  "/js/app.js",
+  "/js/login.js",
+  "/js/dashboard.js"
 
 ];
 
+
+
 /* =====================================================
-INSTALL
+   INSTALL SERVICE WORKER
 ===================================================== */
 
 self.addEventListener(
+  "install",
 
-'install',
+  event => {
 
-function(event){
+    console.log(
+      "ERP SERVICE WORKER INSTALLING"
+    );
 
-console.log(
-'ERP SERVICE WORKER INSTALLING'
+    event.waitUntil(
+
+      caches.open(CACHE_NAME)
+
+        .then(cache => {
+
+          console.log(
+            "ERP CACHE CREATED"
+          );
+
+          return cache.addAll(
+            urlsToCache
+          );
+
+        })
+
+        .catch(error => {
+
+          console.log(
+            "CACHE INSTALL ERROR",
+            error
+          );
+
+        })
+
+    );
+
+  }
+
 );
 
-event.waitUntil(
 
-caches.open(
-ERP_CACHE_NAME
-)
-.then(function(cache){
-
-console.log(
-'ERP CACHE CREATED'
-);
-
-return cache.addAll(
-ERP_CACHE_FILES
-);
-
-})
-
-);
-
-self.skipWaiting();
-
-}
-
-);
 
 /* =====================================================
-ACTIVATE
+   FETCH CACHE
 ===================================================== */
 
 self.addEventListener(
+  "fetch",
 
-'activate',
+  event => {
 
-function(event){
+    event.respondWith(
 
-console.log(
-'ERP SERVICE WORKER ACTIVATED'
-);
+      caches.match(
+        event.request
+      )
 
-event.waitUntil(
+      .then(response => {
 
-caches.keys()
-.then(function(cacheNames){
+        if(response) {
 
-return Promise.all(
+          return response;
 
-cacheNames.map(function(cacheName){
+        }
 
-if(
-cacheName !== ERP_CACHE_NAME
-){
+        return fetch(
+          event.request
+        );
 
-console.log(
-'OLD CACHE REMOVED:',
-cacheName
-);
+      })
 
-return caches.delete(
-cacheName
-);
+      .catch(error => {
 
-}
+        console.log(
+          "FETCH ERROR",
+          error
+        );
 
-})
+      })
 
-);
+    );
 
-})
+  }
 
 );
 
-self.clients.claim();
 
-}
-
-);
 
 /* =====================================================
-FETCH
+   ACTIVATE SERVICE WORKER
 ===================================================== */
 
 self.addEventListener(
+  "activate",
 
-'fetch',
+  event => {
 
-function(event){
+    console.log(
+      "BALAJI NEXTGEN ERP SERVICE WORKER LOADED"
+    );
 
-/* =====================================================
-IGNORE NON-GET
-===================================================== */
+    event.waitUntil(
 
-if(
-event.request.method !== 'GET'
-){
+      caches.keys()
 
-return;
+        .then(cacheNames => {
 
-}
+          return Promise.all(
 
-event.respondWith(
+            cacheNames.map(cache => {
 
-caches.match(
-event.request
-)
-.then(function(cachedResponse){
+              if(cache !== CACHE_NAME) {
 
-/* =====================================================
-RETURN CACHE
-===================================================== */
+                console.log(
+                  "OLD CACHE REMOVED:",
+                  cache
+                );
 
-if(cachedResponse){
+                return caches.delete(
+                  cache
+                );
 
-return cachedResponse;
+              }
 
-}
+            })
 
-/* =====================================================
-NETWORK FETCH
-===================================================== */
+          );
 
-return fetch(
-event.request
-)
-.then(function(networkResponse){
+        })
 
-/* =====================================================
-INVALID RESPONSE
-===================================================== */
+    );
 
-if(
-
-!networkResponse
-||
-networkResponse.status !== 200
-||
-networkResponse.type !== 'basic'
-
-){
-
-return networkResponse;
-
-}
-
-/* =====================================================
-CLONE
-===================================================== */
-
-const responseClone =
-networkResponse.clone();
-
-/* =====================================================
-SAVE CACHE
-===================================================== */
-
-caches.open(
-ERP_CACHE_NAME
-)
-.then(function(cache){
-
-cache.put(
-event.request,
-responseClone
-);
-
-});
-
-/* =====================================================
-RETURN NETWORK
-===================================================== */
-
-return networkResponse;
-
-})
-.catch(function(error){
-
-console.log(
-'FETCH ERROR:',
-error
-);
-
-/* =====================================================
-OFFLINE HTML
-===================================================== */
-
-if(
-event.request.destination === 'document'
-){
-
-return caches.match(
-'/offline.html'
-);
-
-}
-
-});
-
-})
+  }
 
 );
 
-}
+
 
 /* =====================================================
-MESSAGE EVENT
-===================================================== */
-
-);
-
-self.addEventListener(
-
-'message',
-
-function(event){
-
-if(
-event.data
-&&
-event.data.action ===
-'SKIP_WAITING'
-){
-
-self.skipWaiting();
-
-}
-
-}
-
-);
-
-/* =====================================================
-PUSH NOTIFICATION
+   BACKGROUND SYNC
 ===================================================== */
 
 self.addEventListener(
+  "sync",
 
-'push',
+  event => {
 
-function(event){
+    console.log(
+      "BACKGROUND SYNC ACTIVE"
+    );
 
-const title =
-'BALAJI NEXTGEN ERP';
-
-const options = {
-
-body :
-event.data
-?
-event.data.text()
-:
-'NEW ERP NOTIFICATION',
-
-icon :
-'/assets/icons/icon-192.png',
-
-badge :
-'/assets/icons/icon-192.png',
-
-vibrate :
-[200,100,200],
-
-data : {
-
-url :
-'/dashboard.html'
-
-},
-
-actions : [
-
-{
-
-action:'open',
-
-title:'Open ERP'
-
-},
-
-{
-
-action:'close',
-
-title:'Close'
-
-}
-
-]
-
-};
-
-event.waitUntil(
-
-self.registration.showNotification(
-title,
-options
-)
+  }
 
 );
 
-}
 
-);
 
 /* =====================================================
-NOTIFICATION CLICK
+   PUSH NOTIFICATION
 ===================================================== */
 
 self.addEventListener(
+  "push",
 
-'notificationclick',
+  event => {
 
-function(event){
+    const options = {
 
-event.notification.close();
+      body:
+        "BALAJI NEXTGEN ERP Notification",
 
-if(
-event.action === 'close'
-){
+      icon:
+        "/logo.png",
 
-return;
+      badge:
+        "/logo.png"
 
-}
+    };
 
-event.waitUntil(
+    event.waitUntil(
 
-clients.matchAll({
+      self.registration.showNotification(
 
-type:'window',
-includeUncontrolled:true
+        "BALAJI NEXTGEN ERP",
 
-})
-.then(function(clientList){
+        options
 
-for(
-let i = 0;
-i < clientList.length;
-i++
-){
+      )
 
-const client =
-clientList[i];
+    );
 
-if(
-client.url.includes(
-'/dashboard.html'
-)
-&&
-'focus' in client
-){
-
-return client.focus();
-
-}
-
-}
-
-if(clients.openWindow){
-
-return clients.openWindow(
-'/dashboard.html'
-);
-
-}
-
-})
+  }
 
 );
 
-}
 
-);
 
 /* =====================================================
-BACKGROUND SYNC
+   NOTIFICATION CLICK
 ===================================================== */
 
 self.addEventListener(
+  "notificationclick",
 
-'sync',
+  event => {
 
-function(event){
+    event.notification.close();
 
-if(
-event.tag ===
-'erp-background-sync'
-){
+    event.waitUntil(
 
-event.waitUntil(
+      clients.openWindow(
+        "/dashboard.html"
+      )
 
-console.log(
-'BACKGROUND ERP SYNC RUNNING'
-)
+    );
 
-);
+  }
 
-}
-
-}
-
-);
-
-/* =====================================================
-ERROR
-===================================================== */
-
-self.addEventListener(
-
-'error',
-
-function(error){
-
-console.log(
-'SERVICE WORKER ERROR:',
-error
-);
-
-}
-
-);
-
-console.log(
-'BALAJI NEXTGEN ERP SERVICE WORKER LOADED'
 );
