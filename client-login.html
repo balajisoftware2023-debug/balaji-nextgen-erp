@@ -1,10 +1,3 @@
-<!-- =========================================================
-BALAJI NEXTGEN ERP
-PROFESSIONAL LOGIN PAGE
-FILE NAME:
-client-login.html
-========================================================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +5,17 @@ client-login.html
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<title>BALAJI NEXTGEN ERP LOGIN</title>
+<title>
+BALAJI NEXTGEN ERP LOGIN
+</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
 
 <style>
 
@@ -41,33 +40,34 @@ padding:20px;
 .main-container{
 
 width:100%;
-max-width:1500px;
-min-height:95vh;
-background:#ffffff;
+max-width:1450px;
+min-height:94vh;
+background:#fff;
 border-radius:30px;
 overflow:hidden;
 display:grid;
 grid-template-columns:1fr 1fr;
-box-shadow:0 15px 40px rgba(0,0,0,0.12);
+box-shadow:
+0 15px 45px rgba(0,0,0,0.12);
 
 }
 
-/* =====================================================
+/* ======================================================
 LEFT PANEL
-===================================================== */
+====================================================== */
 
 .left-panel{
 
 background:
 linear-gradient(
 135deg,
-#08153d,
-#173a9e,
-#1f45ff
+#071633,
+#163b9e,
+#2454ff
 );
 
 padding:60px;
-color:white;
+color:#fff;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -88,14 +88,14 @@ margin-bottom:40px;
 width:110px;
 height:110px;
 border-radius:25px;
-background:#ffffff;
+background:#fff;
 padding:8px;
 
 }
 
 .logo-text h1{
 
-font-size:72px;
+font-size:70px;
 font-weight:800;
 line-height:1;
 
@@ -110,8 +110,8 @@ color:#ff4b4b;
 .logo-text p{
 
 margin-top:10px;
-letter-spacing:4px;
-font-size:14px;
+font-size:15px;
+letter-spacing:5px;
 
 }
 
@@ -124,7 +124,7 @@ margin-bottom:25px;
 
 }
 
-.description{
+.desc{
 
 font-size:22px;
 line-height:1.9;
@@ -132,12 +132,12 @@ opacity:0.95;
 
 }
 
-.erp-cards{
+.cards{
 
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:25px;
-margin-top:50px;
+gap:22px;
+margin-top:45px;
 
 }
 
@@ -160,13 +160,13 @@ margin-bottom:15px;
 .card p{
 
 font-size:18px;
-line-height:1.8;
+line-height:1.7;
 
 }
 
-/* =====================================================
+/* ======================================================
 RIGHT PANEL
-===================================================== */
+====================================================== */
 
 .right-panel{
 
@@ -206,24 +206,24 @@ cursor:pointer;
 
 .main-btn{
 
-background:#08153d;
-color:white;
+background:#071633;
+color:#fff;
 
 }
 
 .secure-btn{
 
-background:#2b59ff;
-color:white;
+background:#2454ff;
+color:#fff;
 
 }
 
 .welcome{
 
-font-size:72px;
+font-size:70px;
 font-weight:800;
 line-height:1.1;
-margin-bottom:10px;
+margin-bottom:12px;
 
 }
 
@@ -251,18 +251,18 @@ margin-bottom:35px;
 
 }
 
-/* =====================================================
+/* ======================================================
 MESSAGE
-===================================================== */
+====================================================== */
 
 .message{
 
+display:none;
 padding:18px;
 border-radius:18px;
-margin-bottom:25px;
 font-size:18px;
 font-weight:700;
-display:none;
+margin-bottom:25px;
 
 }
 
@@ -280,9 +280,9 @@ color:#b91c1c;
 
 }
 
-/* =====================================================
+/* ======================================================
 FORM
-===================================================== */
+====================================================== */
 
 .form-group{
 
@@ -312,7 +312,7 @@ outline:none;
 
 .form-group input:focus{
 
-border-color:#2b59ff;
+border-color:#2454ff;
 
 }
 
@@ -330,23 +330,16 @@ margin-bottom:25px;
 display:flex;
 align-items:center;
 gap:10px;
-font-size:18px;
+font-size:17px;
 font-weight:600;
-
-}
-
-.show-pass input{
-
-width:18px;
-height:18px;
 
 }
 
 .forgot{
 
-color:#ff4b4b;
-font-size:18px;
+font-size:17px;
 font-weight:700;
+color:#ff4b4b;
 cursor:pointer;
 
 }
@@ -361,10 +354,10 @@ background:
 linear-gradient(
 135deg,
 #ff4b4b,
-#ff2020
+#ff2222
 );
 
-color:white;
+color:#fff;
 font-size:24px;
 font-weight:800;
 cursor:pointer;
@@ -381,11 +374,11 @@ border-radius:22px;
 background:
 linear-gradient(
 135deg,
-#2450ff,
-#173cff
+#2454ff,
+#163cff
 );
 
-color:white;
+color:#fff;
 font-size:24px;
 font-weight:800;
 cursor:pointer;
@@ -401,79 +394,9 @@ color:#64748b;
 
 }
 
-/* =====================================================
-OTP MODAL
-===================================================== */
-
-.modal{
-
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.60);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:9999;
-
-}
-
-.modal-box{
-
-width:95%;
-max-width:420px;
-background:white;
-padding:35px;
-border-radius:25px;
-text-align:center;
-
-}
-
-.modal-box h2{
-
-font-size:32px;
-margin-bottom:15px;
-
-}
-
-.modal-box p{
-
-font-size:18px;
-color:#64748b;
-margin-bottom:25px;
-
-}
-
-.modal-box input{
-
-width:100%;
-padding:18px;
-border-radius:18px;
-border:2px solid #dbe3ff;
-font-size:20px;
-margin-bottom:20px;
-
-}
-
-.modal-box button{
-
-width:100%;
-padding:18px;
-border:none;
-border-radius:18px;
-background:#1f45ff;
-color:white;
-font-size:20px;
-font-weight:700;
-cursor:pointer;
-
-}
-
-/* =====================================================
+/* ======================================================
 RESPONSIVE
-===================================================== */
+====================================================== */
 
 @media(max-width:1100px){
 
@@ -489,6 +412,12 @@ padding:40px;
 
 }
 
+.right-panel{
+
+padding:40px;
+
+}
+
 .logo-text h1{
 
 font-size:48px;
@@ -497,13 +426,7 @@ font-size:48px;
 
 .big-title{
 
-font-size:40px;
-
-}
-
-.right-panel{
-
-padding:40px;
+font-size:42px;
 
 }
 
@@ -517,7 +440,7 @@ font-size:50px;
 
 @media(max-width:650px){
 
-.erp-cards{
+.cards{
 
 grid-template-columns:1fr;
 
@@ -544,6 +467,7 @@ font-size:42px;
 
 .form-group input{
 
+padding:18px;
 font-size:18px;
 
 }
@@ -565,25 +489,30 @@ font-size:20px;
 
 <div class="main-container">
 
-<!-- =====================================================
-LEFT SIDE
-===================================================== -->
+<!-- ======================================================
+LEFT
+====================================================== -->
 
 <div class="left-panel">
 
 <div class="logo-box">
 
-<img src="https://i.postimg.cc/ZRY5vH3p/Picsart-25-05-11-21-22-34-174.png">
+<img
+src="https://i.postimg.cc/ZRY5vH3p/Picsart-25-05-11-21-22-34-174.png">
 
 <div class="logo-text">
 
 <h1>
+
 BALAJI
 <span>NEXTGEN</span>
+
 </h1>
 
 <p>
+
 ENTERPRISE ERP CLOUD
+
 </p>
 
 </div>
@@ -596,23 +525,26 @@ India's Smart Business ERP Platform
 
 </div>
 
-<div class="description">
+<div class="desc">
 
 Professional ERP ecosystem for Restaurant,
-Retail, Inventory, Accounts, GST, HR,
-POS, AI Analytics and Multi-Branch Automation.
+Retail, Inventory, Accounts, GST,
+HR, POS, AI Analytics and
+Multi-Branch Automation.
 
 </div>
 
-<div class="erp-cards">
+<div class="cards">
 
 <div class="card">
 
 <h3>🍽 Restaurant ERP</h3>
 
 <p>
+
 POS Billing, KOT, Kitchen Display &
 Table Management.
+
 </p>
 
 </div>
@@ -622,8 +554,10 @@ Table Management.
 <h3>📦 Inventory ERP</h3>
 
 <p>
+
 Warehouse, Purchase, Stock &
 GRN Automation.
+
 </p>
 
 </div>
@@ -633,8 +567,10 @@ GRN Automation.
 <h3>💰 Finance ERP</h3>
 
 <p>
+
 Accounting, GST, Banking &
 MIS Reports.
+
 </p>
 
 </div>
@@ -644,8 +580,10 @@ MIS Reports.
 <h3>🤖 AI Automation</h3>
 
 <p>
+
 Forecasting, Notifications &
 Analytics.
+
 </p>
 
 </div>
@@ -654,9 +592,9 @@ Analytics.
 
 </div>
 
-<!-- =====================================================
-RIGHT SIDE
-===================================================== -->
+<!-- ======================================================
+RIGHT
+====================================================== -->
 
 <div class="right-panel">
 
@@ -665,11 +603,15 @@ RIGHT SIDE
 <div class="top-buttons">
 
 <button class="main-btn">
+
 🏠 MAIN WEBSITE
+
 </button>
 
 <button class="secure-btn">
+
 🔒 SECURE LOGIN
+
 </button>
 
 </div>
@@ -688,12 +630,23 @@ Secure access to your ERP workspace
 
 <div class="line"></div>
 
-<div id="messageBox"
-class="message"></div>
+<div
+id="messageBox"
+class="message">
+
+</div>
+
+<!-- ======================================================
+LOGIN ID
+====================================================== -->
 
 <div class="form-group">
 
-<label>Email / Mobile</label>
+<label>
+
+Email / Mobile
+
+</label>
 
 <input
 type="text"
@@ -702,9 +655,17 @@ placeholder="Enter Email or Mobile">
 
 </div>
 
+<!-- ======================================================
+PASSWORD
+====================================================== -->
+
 <div class="form-group">
 
-<label>Password</label>
+<label>
+
+Password
+
+</label>
 
 <input
 type="password"
@@ -721,19 +682,27 @@ placeholder="Enter Password">
 type="checkbox"
 onclick="togglePassword()">
 
-<span>Show Password</span>
+<span>
+
+Show Password
+
+</span>
 
 </div>
 
 <div
 class="forgot"
-onclick="openForgotModal()">
+onclick="forgotPassword()">
 
 Forgot Password?
 
 </div>
 
 </div>
+
+<!-- ======================================================
+LOGIN BUTTON
+====================================================== -->
 
 <button
 class="login-btn"
@@ -743,9 +712,13 @@ onclick="loginERP()">
 
 </button>
 
+<!-- ======================================================
+OTP BUTTON
+====================================================== -->
+
 <button
 class="otp-btn"
-onclick="openOTPModal()">
+onclick="loginWithOTP()">
 
 📲 LOGIN WITH OTP
 
@@ -763,78 +736,18 @@ onclick="openOTPModal()">
 
 </div>
 
-<!-- =====================================================
-OTP LOGIN MODAL
-===================================================== -->
-
-<div class="modal"
-id="otpModal">
-
-<div class="modal-box">
-
-<h2>
-OTP Login
-</h2>
-
-<p>
-Enter registered mobile number
-</p>
-
-<input
-type="text"
-id="otpMobile"
-placeholder="Enter Mobile Number">
-
-<button onclick="sendOTP()">
-SEND OTP
-</button>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-FORGOT PASSWORD MODAL
-===================================================== -->
-
-<div class="modal"
-id="forgotModal">
-
-<div class="modal-box">
-
-<h2>
-Reset Password
-</h2>
-
-<p>
-Enter registered mobile number
-</p>
-
-<input
-type="text"
-id="forgotMobile"
-placeholder="Enter Mobile Number">
-
-<button onclick="forgotPasswordOTP()">
-SEND RESET OTP
-</button>
-
-</div>
-
-</div>
-
 <script>
 
-/* =====================================================
-WEBAPP URL
-===================================================== */
+/* ======================================================
+WEB APP URL
+====================================================== */
 
 const WEBAPP_URL =
-'https://script.google.com/macros/s/PASTE_WEBAPP_URL/exec';
+'https://script.google.com/macros/s/PASTE_NEW_WEBAPP_URL/exec';
 
-/* =====================================================
-MESSAGE
-===================================================== */
+/* ======================================================
+SHOW MESSAGE
+====================================================== */
 
 function showMessage(message,type){
 
@@ -843,7 +756,8 @@ document.getElementById(
 'messageBox'
 );
 
-box.style.display='block';
+box.style.display =
+'block';
 
 box.className =
 'message ' + type;
@@ -853,9 +767,9 @@ message;
 
 }
 
-/* =====================================================
+/* ======================================================
 SHOW PASSWORD
-===================================================== */
+====================================================== */
 
 function togglePassword(){
 
@@ -865,95 +779,120 @@ document.getElementById(
 );
 
 pass.type =
+
 pass.type === 'password'
+
 ?
+
 'text'
+
 :
+
 'password';
 
 }
 
-/* =====================================================
-GET LOCATION
-===================================================== */
+/* ======================================================
+SAFE LOCATION ENGINE
+====================================================== */
 
 async function getLocationData(){
 
 return new Promise((resolve)=>{
 
-if(navigator.geolocation){
+const safeData = {
+
+location:'LOCATION NOT AVAILABLE',
+
+loginIP:'UNKNOWN IP',
+
+deviceName:
+navigator.platform || 'UNKNOWN DEVICE',
+
+browserInfo:
+navigator.userAgent || 'UNKNOWN BROWSER'
+
+};
+
+if(!navigator.geolocation){
+
+resolve(safeData);
+
+return;
+
+}
+
+let completed = false;
+
+setTimeout(()=>{
+
+if(!completed){
+
+completed = true;
+
+resolve(safeData);
+
+}
+
+},3000);
 
 navigator.geolocation.getCurrentPosition(
 
 (position)=>{
 
-resolve({
+if(completed){
 
-location:
-'Lat:' +
+return;
+
+}
+
+completed = true;
+
+safeData.location =
+
+'LAT: ' +
+
 position.coords.latitude +
-', Lng:' +
-position.coords.longitude,
 
-loginIP:'WEB_LOGIN_IP',
+' LNG: ' +
 
-deviceName:
-navigator.platform,
+position.coords.longitude;
 
-browserInfo:
-navigator.userAgent
-
-});
+resolve(safeData);
 
 },
 
-()=>{
+(error)=>{
 
-resolve({
+if(completed){
 
-location:'LOCATION DENIED',
+return;
 
-loginIP:'WEB_LOGIN_IP',
+}
 
-deviceName:
-navigator.platform,
+completed = true;
 
-browserInfo:
-navigator.userAgent
+resolve(safeData);
 
-});
+},
+
+{
+
+enableHighAccuracy:false,
+timeout:2000,
+maximumAge:60000
 
 }
 
 );
 
-}
-
-else{
-
-resolve({
-
-location:'LOCATION NOT AVAILABLE',
-
-loginIP:'WEB_LOGIN_IP',
-
-deviceName:
-navigator.platform,
-
-browserInfo:
-navigator.userAgent
-
 });
 
 }
 
-});
-
-}
-
-/* =====================================================
+/* ======================================================
 LOGIN
-===================================================== */
+====================================================== */
 
 async function loginERP(){
 
@@ -996,8 +935,16 @@ showMessage(
 'success'
 );
 
+/* ======================================================
+SAFE LOCATION
+====================================================== */
+
 const locationData =
 await getLocationData();
+
+/* ======================================================
+API CALL
+====================================================== */
 
 const response =
 await fetch(
@@ -1007,6 +954,10 @@ WEBAPP_URL,
 {
 
 method:'POST',
+
+headers:{
+'Content-Type':'text/plain'
+},
 
 body:JSON.stringify({
 
@@ -1034,19 +985,38 @@ locationData.browserInfo
 
 );
 
+/* ======================================================
+SAFE RESPONSE
+====================================================== */
+
+const text =
+await response.text();
+
+console.log(text);
+
 const result =
-await response.json();
+JSON.parse(text);
+
+/* ======================================================
+SUCCESS
+====================================================== */
 
 if(result.success){
 
 localStorage.setItem(
-'erpUser',
-JSON.stringify(result.user)
+
+'erpSessionToken',
+
+result.sessionToken
+
 );
 
 localStorage.setItem(
-'erpSessionToken',
-result.sessionToken
+
+'erpUser',
+
+JSON.stringify(result.user)
+
 );
 
 showMessage(
@@ -1063,6 +1033,10 @@ window.location.href =
 
 }
 
+/* ======================================================
+FAILED
+====================================================== */
+
 else{
 
 showMessage(
@@ -1076,106 +1050,45 @@ result.message,
 
 catch(error){
 
+console.log(error);
+
 showMessage(
 'SERVER ERROR',
 'error'
 );
 
-console.log(error);
-
 }
 
 }
 
-/* =====================================================
-OPEN OTP MODAL
-===================================================== */
+/* ======================================================
+OTP LOGIN
+====================================================== */
 
-function openOTPModal(){
+function loginWithOTP(){
 
-document.getElementById(
-'otpModal'
-).style.display='flex';
-
-}
-
-/* =====================================================
-OPEN FORGOT MODAL
-===================================================== */
-
-function openForgotModal(){
-
-document.getElementById(
-'forgotModal'
-).style.display='flex';
-
-}
-
-/* =====================================================
-SEND OTP
-===================================================== */
-
-async function sendOTP(){
-
-const mobile =
-document.getElementById(
-'otpMobile'
-).value.trim();
-
-if(!mobile){
-
-alert(
-'ENTER MOBILE NUMBER'
-);
-
-return;
-
-}
-
-alert(
-'OTP SENT SUCCESSFULLY'
+showMessage(
+'OTP MODULE READY',
+'success'
 );
 
 }
 
-/* =====================================================
-FORGOT PASSWORD OTP
-===================================================== */
+/* ======================================================
+FORGOT PASSWORD
+====================================================== */
 
-async function forgotPasswordOTP(){
+function forgotPassword(){
 
-const mobile =
-document.getElementById(
-'forgotMobile'
-).value.trim();
-
-if(!mobile){
-
-alert(
-'ENTER MOBILE NUMBER'
-);
-
-return;
-
-}
-
-alert(
-'RESET OTP SENT'
+showMessage(
+'FORGOT PASSWORD MODULE READY',
+'success'
 );
 
 }
-
-window.onclick = function(event){
-
-if(event.target.classList.contains('modal')){
-
-event.target.style.display='none';
-
-}
-
-};
 
 </script>
 
 </body>
+
 </html>
