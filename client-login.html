@@ -14,22 +14,32 @@ BALAJI NEXTGEN ERP LOGIN
 </title>
 
 <link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
 rel="manifest"
 href="/manifest.json">
 
 <meta
 name="theme-color"
-content="#2563eb">
+content="#1e3a8a">
 
 <link
 rel="icon"
 href="logo.png">
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
-
 <style>
+
+:root{
+--primary:#2563eb;
+--primary-dark:#1d4ed8;
+--danger:#dc2626;
+--success:#16a34a;
+--dark:#0f172a;
+--light:#f8fafc;
+--border:#cbd5e1;
+}
 
 *{
 margin:0;
@@ -56,16 +66,16 @@ overflow-x:hidden;
 
 .container{
 width:100%;
-max-width:1650px;
+max-width:1600px;
 background:white;
-border-radius:35px;
+border-radius:36px;
 overflow:hidden;
 display:flex;
-box-shadow:0 20px 60px rgba(0,0,0,0.12);
+box-shadow:0 20px 60px rgba(0,0,0,.12);
 }
 
 /* =====================================================
-LEFT
+LEFT SIDE
 ===================================================== */
 
 .left{
@@ -91,8 +101,8 @@ margin-bottom:40px;
 .logo{
 width:120px;
 height:120px;
-border-radius:25px;
-background:rgba(255,255,255,0.08);
+border-radius:28px;
+background:rgba(255,255,255,.08);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -104,7 +114,7 @@ width:90px;
 }
 
 .logo-title h1{
-font-size:70px;
+font-size:72px;
 line-height:72px;
 font-weight:800;
 }
@@ -116,13 +126,15 @@ color:#ef4444;
 .logo-title p{
 margin-top:10px;
 letter-spacing:2px;
-font-size:14px;
+font-size:13px;
+color:#cbd5e1;
 }
 
 .big-title{
-font-size:40px;
-font-weight:700;
-margin-bottom:30px;
+font-size:42px;
+font-weight:800;
+line-height:58px;
+margin-bottom:25px;
 }
 
 .description{
@@ -132,46 +144,46 @@ color:#dbeafe;
 margin-bottom:40px;
 }
 
-.grid{
+.feature-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
 }
 
-.card{
-padding:25px;
+.feature-card{
+background:rgba(255,255,255,.08);
+padding:24px;
 border-radius:24px;
-background:rgba(255,255,255,0.08);
-transition:0.3s;
+transition:.3s;
 }
 
-.card:hover{
+.feature-card:hover{
 transform:translateY(-5px);
-background:rgba(255,255,255,0.12);
+background:rgba(255,255,255,.12);
 }
 
-.card h3{
-font-size:24px;
-margin-bottom:12px;
+.feature-card h3{
+font-size:22px;
+margin-bottom:10px;
 }
 
-.card p{
-font-size:15px;
-line-height:28px;
+.feature-card p{
+font-size:14px;
+line-height:26px;
 color:#dbeafe;
 }
 
 /* =====================================================
-RIGHT
+RIGHT SIDE
 ===================================================== */
 
 .right{
 width:45%;
 padding:55px;
+background:white;
 display:flex;
 flex-direction:column;
 justify-content:center;
-background:white;
 }
 
 .top-buttons{
@@ -188,7 +200,7 @@ border-radius:18px;
 font-size:15px;
 font-weight:700;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
 .main-btn{
@@ -196,7 +208,7 @@ background:#0f172a;
 color:white;
 }
 
-.demo-btn{
+.secure-btn{
 background:
 linear-gradient(
 135deg,
@@ -211,9 +223,9 @@ transform:translateY(-2px);
 }
 
 .welcome{
-font-size:65px;
+font-size:64px;
 font-weight:800;
-line-height:65px;
+line-height:64px;
 color:#0f172a;
 }
 
@@ -222,7 +234,7 @@ color:#ef4444;
 }
 
 .sub{
-margin-top:18px;
+margin-top:15px;
 font-size:18px;
 color:#64748b;
 }
@@ -232,7 +244,23 @@ width:120px;
 height:6px;
 background:#ef4444;
 border-radius:20px;
-margin:35px 0;
+margin:30px 0;
+}
+
+.trust-bar{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-bottom:28px;
+}
+
+.trust-bar div{
+background:#eff6ff;
+color:#1d4ed8;
+padding:10px 14px;
+border-radius:14px;
+font-size:13px;
+font-weight:700;
 }
 
 /* =====================================================
@@ -254,22 +282,45 @@ font-weight:700;
 width:100%;
 padding:18px;
 border-radius:18px;
-border:1px solid #cbd5e1;
+border:1px solid var(--border);
 background:#f8fafc;
 font-size:16px;
 outline:none;
-transition:0.3s;
+transition:.3s;
 }
 
 .group input:focus{
-border-color:#ef4444;
+border-color:#2563eb;
 background:white;
-box-shadow:0 0 0 4px rgba(239,68,68,0.08);
+box-shadow:0 0 0 4px rgba(37,99,235,.08);
 }
 
 .show{
 margin-top:10px;
 font-size:14px;
+}
+
+.remember-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:12px;
+margin-bottom:18px;
+}
+
+.remember-box{
+display:flex;
+align-items:center;
+gap:8px;
+font-size:14px;
+font-weight:600;
+color:#334155;
+}
+
+.device-text{
+font-size:13px;
+font-weight:600;
+color:#64748b;
 }
 
 .forgot-link{
@@ -298,16 +349,25 @@ linear-gradient(
 #dc2626
 );
 color:white;
-font-size:19px;
+font-size:18px;
 font-weight:700;
 cursor:pointer;
 margin-top:15px;
-transition:0.3s;
+transition:.3s;
 }
 
 .login-btn:hover{
 transform:translateY(-2px);
-box-shadow:0 15px 30px rgba(239,68,68,0.25);
+box-shadow:0 15px 30px rgba(239,68,68,.25);
+}
+
+.otp-btn{
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
 }
 
 .message{
@@ -319,8 +379,42 @@ font-weight:700;
 text-align:center;
 }
 
+.security-box{
+margin-top:25px;
+padding:18px;
+border-radius:20px;
+background:#f8fafc;
+border:1px solid #e2e8f0;
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.security-icon{
+width:55px;
+height:55px;
+border-radius:16px;
+background:#dbeafe;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+}
+
+.security-box h4{
+font-size:15px;
+margin-bottom:5px;
+color:#0f172a;
+}
+
+.security-box p{
+font-size:13px;
+color:#64748b;
+line-height:20px;
+}
+
 .footer{
-margin-top:40px;
+margin-top:35px;
 text-align:center;
 font-size:14px;
 color:#64748b;
@@ -336,17 +430,17 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(255,255,255,0.7);
+background:rgba(255,255,255,.7);
 display:none;
 justify-content:center;
 align-items:center;
-z-index:9999;
+z-index:999999;
 }
 
 .spinner{
 width:80px;
 height:80px;
-border:8px solid #e2e8f0;
+border:8px solid #dbeafe;
 border-top:8px solid #ef4444;
 border-radius:50%;
 animation:spin 1s linear infinite;
@@ -356,6 +450,101 @@ animation:spin 1s linear infinite;
 100%{
 transform:rotate(360deg);
 }
+}
+
+/* =====================================================
+OTP MODAL
+===================================================== */
+
+.otp-modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.55);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:999999;
+padding:20px;
+}
+
+.otp-box{
+width:100%;
+max-width:430px;
+background:white;
+border-radius:28px;
+padding:35px;
+animation:popup .25s ease;
+box-shadow:0 25px 60px rgba(0,0,0,.25);
+}
+
+@keyframes popup{
+
+from{
+transform:scale(.8);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.otp-header{
+text-align:center;
+margin-bottom:25px;
+}
+
+.otp-header h2{
+font-size:28px;
+margin-bottom:10px;
+color:#0f172a;
+}
+
+.otp-header p{
+color:#64748b;
+font-size:15px;
+}
+
+.otp-box input{
+width:100%;
+padding:18px;
+border-radius:18px;
+border:1px solid #cbd5e1;
+background:#f8fafc;
+margin-bottom:18px;
+font-size:16px;
+outline:none;
+}
+
+.otp-box button{
+width:100%;
+padding:18px;
+border:none;
+border-radius:18px;
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
+color:white;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+margin-bottom:15px;
+}
+
+.close-otp{
+text-align:center;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+color:#dc2626;
 }
 
 /* =====================================================
@@ -374,7 +563,7 @@ width:100%;
 padding:35px;
 }
 
-.grid{
+.feature-grid{
 grid-template-columns:1fr;
 }
 
@@ -409,13 +598,83 @@ flex-direction:column;
 
 <body>
 
+<!-- =====================================================
+LOADER
+===================================================== -->
+
 <div class="loader" id="loader">
 <div class="spinner"></div>
 </div>
 
+<!-- =====================================================
+OTP MODAL
+===================================================== -->
+
+<div class="otp-modal" id="otpModal">
+
+<div class="otp-box">
+
+<div class="otp-header">
+
+<h2>
+🔐 Secure OTP Login
+</h2>
+
+<p>
+Enter your registered mobile number
+</p>
+
+</div>
+
+<input
+type="text"
+id="otpMobile"
+placeholder="Enter Mobile Number">
+
+<button onclick="sendOTP()">
+
+SEND OTP
+
+</button>
+
+<div
+id="otpSection"
+style="display:none">
+
+<input
+type="text"
+id="otpCode"
+placeholder="Enter OTP">
+
+<button onclick="verifyOTP()">
+
+VERIFY OTP
+
+</button>
+
+</div>
+
+<div
+class="close-otp"
+onclick="closeOTPModal()">
+
+✖ Close
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+MAIN CONTAINER
+===================================================== -->
+
 <div class="container">
 
-<!-- LEFT -->
+<!-- =====================================================
+LEFT SIDE
+===================================================== -->
 
 <div class="left">
 
@@ -433,7 +692,7 @@ BALAJI <br>
 </h1>
 
 <p>
-ENTERPRISE ERP ECOSYSTEM
+ENTERPRISE ERP CLOUD
 </p>
 
 </div>
@@ -441,40 +700,42 @@ ENTERPRISE ERP ECOSYSTEM
 </div>
 
 <div class="big-title">
-SMART BUSINESS AUTOMATION PLATFORM
+India's Smart Business ERP Platform
 </div>
 
 <div class="description">
-Enterprise-grade ERP ecosystem for Restaurant, Retail, Manufacturing, Inventory, POS, GST, HR, Accounts, AI Automation and Multi-Branch Operations.
+Professional ERP ecosystem for Restaurant, Retail, Inventory, Accounts, GST, HR, POS, AI Analytics and Multi-Branch Automation.
 </div>
 
-<div class="grid">
+<div class="feature-grid">
 
-<div class="card">
+<div class="feature-card">
 <h3>🍽 Restaurant ERP</h3>
-<p>POS Billing, Kitchen Display, KOT & Analytics.</p>
+<p>POS Billing, KOT, Kitchen Display & Table Management.</p>
 </div>
 
-<div class="card">
+<div class="feature-card">
 <h3>📦 Inventory ERP</h3>
-<p>Warehouse, Purchase, Stock & GRN Management.</p>
+<p>Warehouse, Purchase, Stock & GRN Automation.</p>
 </div>
 
-<div class="card">
-<h3>💰 Finance ERP</h3>
-<p>Accounting, GST, Banking & Reports.</p>
+<div class="feature-card">
+<h3>💰 Accounts & GST</h3>
+<p>Accounting, GST Filing, Banking & Reports.</p>
 </div>
 
-<div class="card">
+<div class="feature-card">
 <h3>🤖 AI Automation</h3>
-<p>Forecasting, Notifications & Analytics.</p>
+<p>Forecasting, Smart Alerts & AI Business Analytics.</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- RIGHT -->
+<!-- =====================================================
+RIGHT SIDE
+===================================================== -->
 
 <div class="right">
 
@@ -489,8 +750,7 @@ onclick="goWebsite()">
 </button>
 
 <button
-class="demo-btn"
-onclick="showMessage('PLEASE LOGIN WITH VALID USER','error')">
+class="secure-btn">
 
 🔒 SECURE LOGIN
 
@@ -503,10 +763,20 @@ Welcome <span>Back!</span>
 </div>
 
 <div class="sub">
-Login with Email, Mobile or OTP
+Secure access to your ERP workspace
 </div>
 
 <div class="line"></div>
+
+<div class="trust-bar">
+
+<div>🔒 SSL Secured</div>
+
+<div>☁ Cloud ERP</div>
+
+<div>🛡 Enterprise Security</div>
+
+</div>
 
 <div
 class="message"
@@ -548,10 +818,25 @@ Show Password
 
 </div>
 
+<div class="remember-row">
+
+<label class="remember-box">
+
+<input type="checkbox">
+
+<span>Remember Me</span>
+
+</label>
+
+<div class="device-text">
+Trusted Device
+</div>
+
+</div>
+
 <div class="forgot-link">
 
-<a href="#"
-onclick="openForgotPassword()">
+<a onclick="openForgotPassword()">
 
 Forgot Password?
 
@@ -569,16 +854,32 @@ onclick="loginERP()">
 </button>
 
 <button
-class="login-btn"
-style="
-margin-top:12px;
-background:linear-gradient(135deg,#2563eb,#1d4ed8)
-"
+class="login-btn otp-btn"
 onclick="openOTPLogin()">
 
 📲 LOGIN WITH OTP
 
 </button>
+
+<div class="security-box">
+
+<div class="security-icon">
+🛡
+</div>
+
+<div>
+
+<h4>
+Enterprise Security Enabled
+</h4>
+
+<p>
+Your session is encrypted and protected.
+</p>
+
+</div>
+
+</div>
 
 <div class="footer">
 © 2026 Balaji NextGen Solutions
@@ -612,7 +913,7 @@ box.style.display='block';
 
 box.innerHTML=message;
 
-if(type==='error'){
+if(type === 'error'){
 
 box.style.background='#fee2e2';
 box.style.color='#dc2626';
@@ -647,7 +948,7 @@ document.getElementById(
 }
 
 /* =====================================================
-PASSWORD
+SHOW PASSWORD
 ===================================================== */
 
 function togglePassword(){
@@ -667,7 +968,7 @@ pass.type === 'password'
 }
 
 /* =====================================================
-SECURE LOGIN
+LOGIN ENGINE
 ===================================================== */
 
 async function loginERP(){
@@ -733,18 +1034,12 @@ password:password
 const result =
 await response.json();
 
-console.log(result);
-
 hideLoader();
 
 loginBtn.disabled = false;
 
 loginBtn.innerHTML =
 '🔐 LOGIN TO ERP';
-
-/* =====================================================
-VALID LOGIN ONLY
-===================================================== */
 
 if(
 
@@ -767,11 +1062,6 @@ JSON.stringify(result.user)
 );
 
 localStorage.setItem(
-'ERP_SESSION',
-result.sessionToken
-);
-
-localStorage.setItem(
 'ERP_ROLE',
 result.user.role
 );
@@ -780,36 +1070,68 @@ showMessage(
 'LOGIN SUCCESS'
 );
 
+const role =
+String(
+result.user.role || ''
+)
+.toUpperCase();
+
 setTimeout(function(){
+
+if(role === 'SUPER ADMIN'){
+
+window.location.href =
+'super-admin-dashboard.html';
+
+}
+
+else if(role === 'ADMIN'){
+
+window.location.href =
+'admin-dashboard.html';
+
+}
+
+else if(role === 'OWNER'){
+
+window.location.href =
+'owner-dashboard.html';
+
+}
+
+else if(role === 'MANAGER'){
+
+window.location.href =
+'manager-dashboard.html';
+
+}
+
+else if(role === 'CHEF'){
+
+window.location.href =
+'kitchen-dashboard.html';
+
+}
+
+else if(role === 'CASHIER'){
+
+window.location.href =
+'pos-dashboard.html';
+
+}
+
+else{
 
 window.location.href =
 'dashboard.html';
+
+}
 
 },1000);
 
 }
 
-/* =====================================================
-INVALID LOGIN
-===================================================== */
-
 else{
-
-localStorage.removeItem(
-'ERP_LOGIN_STATUS'
-);
-
-localStorage.removeItem(
-'ERP_USER'
-);
-
-localStorage.removeItem(
-'ERP_SESSION'
-);
-
-localStorage.removeItem(
-'ERP_ROLE'
-);
 
 showMessage(
 result.message || 'INVALID LOGIN',
@@ -821,8 +1143,6 @@ result.message || 'INVALID LOGIN',
 }
 
 catch(error){
-
-console.log(error);
 
 hideLoader();
 
@@ -841,53 +1161,61 @@ showMessage(
 }
 
 /* =====================================================
-OTP LOGIN
+OTP MODAL
 ===================================================== */
 
 function openOTPLogin(){
 
-const mobile = prompt(
-"ENTER REGISTERED MOBILE NUMBER"
-);
+document.getElementById(
+'otpModal'
+).style.display='flex';
+
+}
+
+function closeOTPModal(){
+
+document.getElementById(
+'otpModal'
+).style.display='none';
+
+}
+
+function sendOTP(){
+
+const mobile =
+document.getElementById(
+'otpMobile'
+).value.trim();
 
 if(!mobile){
 
 showMessage(
-"MOBILE NUMBER REQUIRED",
-"error"
+'ENTER MOBILE NUMBER',
+'error'
 );
 
 return;
 
 }
 
-showLoader();
-
-setTimeout(function(){
-
-hideLoader();
-
 showMessage(
-"OTP SENT TO " + mobile
+'OTP SENT SUCCESSFULLY'
 );
 
-verifyOTPLogin(mobile);
-
-},1500);
+document.getElementById(
+'otpSection'
+).style.display='block';
 
 }
 
-/* =====================================================
-VERIFY OTP
-===================================================== */
+function verifyOTP(){
 
-function verifyOTPLogin(mobile){
+const otp =
+document.getElementById(
+'otpCode'
+).value.trim();
 
-const otp = prompt(
-"ENTER OTP : 123456"
-);
-
-if(otp === "123456"){
+if(otp === '123456'){
 
 localStorage.setItem(
 'ERP_LOGIN_STATUS',
@@ -895,16 +1223,8 @@ localStorage.setItem(
 );
 
 localStorage.setItem(
-'ERP_USER',
-JSON.stringify({
-
-name:'OTP USER',
-role:'USER',
-mobile:mobile,
-branch:'HEAD OFFICE'
-
-})
-
+'ERP_ROLE',
+'USER'
 );
 
 showMessage(
@@ -937,70 +1257,36 @@ FORGOT PASSWORD
 
 function openForgotPassword(){
 
-const mobile = prompt(
-"Enter Registered Mobile Number"
+const mobile =
+prompt(
+'ENTER REGISTERED MOBILE NUMBER'
 );
 
 if(!mobile){
 
 showMessage(
-"ENTER MOBILE NUMBER",
-"error"
+'MOBILE NUMBER REQUIRED',
+'error'
 );
 
 return;
 
 }
 
-showLoader();
-
-setTimeout(function(){
-
-hideLoader();
-
 showMessage(
-"OTP SENT TO " + mobile
+'RESET LINK SENT'
 );
-
-const otp = prompt(
-"ENTER OTP : 123456"
-);
-
-if(otp === "123456"){
-
-const newPassword = prompt(
-"ENTER NEW PASSWORD"
-);
-
-if(newPassword){
-
-showMessage(
-"PASSWORD RESET SUCCESS"
-);
-
-}
-
-}else{
-
-showMessage(
-"INVALID OTP",
-"error"
-);
-
-}
-
-},1500);
 
 }
 
 /* =====================================================
-BUTTONS
+WEBSITE
 ===================================================== */
 
 function goWebsite(){
 
 window.open(
-'https://balajierpnextgen.netlify.app',
+'https://balajinextgensolution.netlify.app',
 '_blank'
 );
 
